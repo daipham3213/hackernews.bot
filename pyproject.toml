@@ -1,0 +1,59 @@
+[project]
+name = "hackernews-bot"
+version = "1.0.0"
+description = "A bot that push notifications to telegram when hackernews got new posts"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiogram>=3.19.0",
+    "aiohttp>=3.11.16",
+    "aiosseclient>=0.1.8",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+hackernews-bot = "hackernews_bot.cmd.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["hackernews_bot"]
+
+[tool.hatch]
+version.source = "vcs"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 79
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # pycodestyle warnings
+    "W"
+]
+ignore = [
+    "E203",
+    "SIM117",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

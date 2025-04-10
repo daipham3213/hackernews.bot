@@ -1,0 +1,6 @@
+[DEFAULT]
+bot_token =
+chat_id =
+
+[logging]
+level = DEBUG
